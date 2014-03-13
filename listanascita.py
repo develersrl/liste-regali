@@ -83,7 +83,7 @@ class MainPage(webapp.RequestHandler):
             'can_edit': can_edit,
         }
 
-        self.response.out.write(Template('index.html').render(template_values))
+        self.response.out.write(Template(filename='index.html').render(template_values))
 
 class MakeGift(webapp.RequestHandler):
     def post(self):
@@ -110,7 +110,7 @@ class MakeGift(webapp.RequestHandler):
                 'code': 'ID'+hex(int(time.time()))[-5:].upper(),
             }
 
-            self.response.out.write(Template('makegift.html').render(template_values))
+            self.response.out.write(Template(filename='makegift.html').render(template_values))
         elif self.request.get("cart"):
             gift = Gift()
             gift.email = self.request.get("email")
@@ -139,7 +139,7 @@ def mail_confirm(gift, cart):
             'gift': gift,
             'cart': cart,
             }
-    html = Template('confirm_email.template').render(template_values)
+    html = Template(filename='confirm_email.template').render(template_values)
     body = html2text.HTML2Text().handle(html)
 
     mail.send_mail(sender, to, subject, body, reply_to=reply_to, html=html)
@@ -156,7 +156,7 @@ class EditItem(webapp.RequestHandler):
             'item': item,
             'categories': CATEGORIES,
         }
-        self.response.out.write(Template('edit.html').render(template_values))
+        self.response.out.write(Template(filename='edit.html').render(template_values))
     def post(self):
         key = self.request.get("key")
         if key:
@@ -192,7 +192,7 @@ class Image(webapp.RequestHandler):
 
 class Thanks(webapp.RequestHandler):
     def get(self):
-        self.response.out.write(Template("grazie.html").render({}))
+        self.response.out.write(Template(filename="grazie.html").render({}))
 
 
 application = webapp.WSGIApplication(
