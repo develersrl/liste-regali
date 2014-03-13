@@ -11,7 +11,7 @@ from google.appengine.api import mail
 #from google.appengine.ext import webapp
 import webapp2 as webapp
 from google.appengine.ext import db
-from jinja2 import Template
+from jinja2 import FileSystemLoader, Environment
 from google.appengine.ext import blobstore
 from google.appengine.ext.webapp import blobstore_handlers
 from django.utils import simplejson as json
@@ -19,6 +19,8 @@ from django.utils import simplejson as json
 import html2text
 
 CATEGORIES = ["0-20 euro", "21-50 euro", "51-100 euro", "Oltre 100 euro", "Altro"]
+
+env = Environment(loader=FileSystemLoader("./"))
 
 class Item(db.Model):
     title = db.StringProperty()
@@ -83,7 +85,7 @@ class MainPage(webapp.RequestHandler):
             'can_edit': can_edit,
         }
 
-        self.response.out.write(Template(filename='index.html').render(template_values))
+        self.response.out.write(env.get_template('index.html').render(template_values))
 
 class MakeGift(webapp.RequestHandler):
     def post(self):
@@ -110,7 +112,7 @@ class MakeGift(webapp.RequestHandler):
                 'code': 'ID'+hex(int(time.time()))[-5:].upper(),
             }
 
-            self.response.out.write(Template(filename='makegift.html').render(template_values))
+            self.response.out.write(env.get_template('makegift.html').render(template_values))
         elif self.request.get("cart"):
             gift = Gift()
             gift.email = self.request.get("email")
@@ -139,7 +141,7 @@ def mail_confirm(gift, cart):
             'gift': gift,
             'cart': cart,
             }
-    html = Template(filename='confirm_email.template').render(template_values)
+    html = env.get_template('confirm_email.template').render(template_values)
     body = html2text.HTML2Text().handle(html)
 
     mail.send_mail(sender, to, subject, body, reply_to=reply_to, html=html)
@@ -156,7 +158,7 @@ class EditItem(webapp.RequestHandler):
             'item': item,
             'categories': CATEGORIES,
         }
-        self.response.out.write(Template(filename='edit.html').render(template_values))
+        self.response.out.write(env.get_template('edit.html').render(template_values))
     def post(self):
         key = self.request.get("key")
         if key:
@@ -192,7 +194,7 @@ class Image(webapp.RequestHandler):
 
 class Thanks(webapp.RequestHandler):
     def get(self):
-        self.response.out.write(Template(filename="grazie.html").render({}))
+        self.response.out.write(env.get_template("grazie.html").render({}))
 
 
 application = webapp.WSGIApplication(
