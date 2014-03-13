@@ -16,8 +16,8 @@ Firmato: {{ gift.sender }}
 {% if gift.online %}
 <br /><h3>Dato che hai scelto di comprare on line il regalo, puoi farlo recapitare a:</h3>
 <b>Elisa e Matteo Bertini</b><br />
-via G. Arcangeli 19<br />
-50126 Firenze<br />
+Via Colombina 214<br />
+50013 Campi Bisenzio (Firenze)<br />
 {% endif %}
 
 <h3>Grazie!</h3>

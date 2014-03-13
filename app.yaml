@@ -1,7 +1,8 @@
 application: listanascita
 version: 1
-runtime: python
+runtime: python27
 api_version: 1
+threadsafe: false
 
 
 handlers:
@@ -12,10 +13,10 @@ handlers:
   static_dir: js
 
 - url: /.*
-  script: listanascita.py
+  script: listanascita.application
 
 - url: /edit
-  script: listanascita.py
+  script: listanascita.application
   login: admin
 
 - url: /_ah/mail/.+

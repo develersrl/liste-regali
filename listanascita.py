@@ -13,8 +13,7 @@ from google.appengine.api import mail
 #from google.appengine.ext import webapp
 import webapp2 as webapp
 from google.appengine.ext import db
-from google.appengine.ext.webapp.util import run_wsgi_app
-from google.appengine.ext.webapp import template
+from jinja2 import Template
 from google.appengine.ext import blobstore
 from google.appengine.ext.webapp import blobstore_handlers
 from django.utils import simplejson as json
@@ -86,7 +85,7 @@ class MainPage(webapp.RequestHandler):
             'can_edit': can_edit,
         }
 
-        self.response.out.write(template.render('index.html', template_values))
+        self.response.out.write(Template('index.html').render(template_values))
 
 class MakeGift(webapp.RequestHandler):
     def post(self):
@@ -113,7 +112,7 @@ class MakeGift(webapp.RequestHandler):
                 'code': 'ID'+hex(int(time.time()))[-5:].upper(),
             }
 
-            self.response.out.write(template.render('makegift.html', template_values))
+            self.response.out.write(Template('makegift.html').render(template_values))
         elif self.request.get("cart"):
             gift = Gift()
             gift.email = self.request.get("email")
@@ -142,7 +141,7 @@ def mail_confirm(gift, cart):
             'gift': gift,
             'cart': cart,
             }
-    html = template.render('confirm_email.template', template_values)
+    html = Template('confirm_email.template').render(template_values)
     body = html2text.HTML2Text().handle(html)
 
     mail.send_mail(sender, to, subject, body, reply_to=reply_to, html=html)
@@ -159,7 +158,7 @@ class EditItem(webapp.RequestHandler):
             'item': item,
             'categories': CATEGORIES,
         }
-        self.response.out.write(template.render('edit.html', template_values))
+        self.response.out.write(Template('edit.html').render(template_values))
     def post(self):
         key = self.request.get("key")
         if key:
@@ -195,7 +194,7 @@ class Image(webapp.RequestHandler):
 
 class Thanks(webapp.RequestHandler):
     def get(self):
-        self.response.out.write(template.render("grazie.html", {}))
+        self.response.out.write(Template("grazie.html").render({}))
 
 
 application = webapp.WSGIApplication(
@@ -207,9 +206,3 @@ application = webapp.WSGIApplication(
                                       ('/thanks', Thanks),
                                       ],
                                      debug=True)
-
-def main():
-    run_wsgi_app(application)
-
-if __name__ == "__main__":
-    main()
