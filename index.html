@@ -1,0 +1,77 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="it-IT">
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Lista Nascita Valerio - Elisa e Matteo</title>
+
+<link rel="stylesheet" href="stylesheets/stile.css" type="text/css" media="screen" />
+
+<script type="text/javascript" src="js/simpleCart.js"></script>
+<script type="text/javascript">
+    simpleCart.email = "matteo@naufraghi.net";
+    simpleCart.checkoutTo = Custom;
+    simpleCart.currency = EUR;
+    simpleCart.cartHeaders = ["Name_noHeader" , "remove_noHeader", ];
+</script>
+
+</head>
+<body>
+    <div id="contenitore">
+        <h1>Lista Nascita Valerio</h1>
+
+<div id="contenuto">
+	<div id="avviso">Come sapete, è arrivato un nuovo bimbo!<br />
+		Questa lista nascita è per aiutare chi vuole salutare la sua nascita con un regalo, per evitare doppioni.<br />
+		Siamo però convinti che, per rendere migliore il mondo in cui vivrà Valerio, dobbiamo cominciare fin da ora ad evitare gli sprechi: quindi siamo assolutamente <b>favorevoli al riciclo e al prestito</b> quando possibile!<br />
+		Vi chiediamo inoltre di <b>non regalare detergenti e cosmetici</b>, anche se adatti ai neonati, perché Valerio potrebbe essere allergico (come la mamma...). Per lo stesso motivo preferiamo che i tessuti, se nuovi, siano di cotone biologico non trattato chimicamente. (Il problema non si pone con i tessuti prestati, perché i numerosi lavaggi hanno eliminato le sostanze allergizzanti) <br />
+		<b>Grazie</b> anche a nome di Valerio!
+	</div>
+
+{% for item in items %}
+{% if item.visible or can_edit %}
+<ul>
+    <li class="box">
+        <p class="categoria">{{ item.category }}</p>
+        <div class="interno">
+        {% if item.is_complete %}
+        <br />
+        <br />
+        <br />
+        {% endif %}
+        <p class="titolo">{{ item.title }}</p>
+        <img src="img/{{ item.key }}.jpg" width="150" height="110" />
+        {% if item.is_complete %}<img src="stylesheets/imgs/fioccoregalo.png" class="ribbon" width="150" height="110" />{% endif %}
+        <p class="descrizione">{{ item.info|safe }}</p>
+        {% if not item.is_complete %}
+        <a class="regala" href="javascript:;" onclick="simpleCart.add('name={{ item.title }}', 'price={{ item.part_price }}','quantity=1','key={{ item.key }}','thumb=img/{{ item.key }}.png');" ></a>
+        {% endif %}
+	{% if can_edit %}<p>
+	  {{ item.avail_parts }} / {{ item.tot_parts }} <br />
+	  <a href="/edit?key={{ item.key }}">Modifica</a> | <a href="/edit">Aggiungi</a>
+	</p>{% endif %}
+    </div>
+    </li>
+</ul>
+{% endif %}
+{% endfor %}
+
+<div class="clear"></div>
+</div>
+<br />
+<div id="carrello">
+<div class="simpleCart_items"></div>
+<div class="clear"></div>
+<div class="tot_finale">
+    <div class="clear"></div>
+    <a href="javascript:;" class="simpleCart_checkout">conferma</a>
+    <div class="clear"></div>
+    <a href="javascript:;" class="simpleCart_empty">svuota carrello</a><br />
+</div>
+</div>
+<a href="{{ url }}">{{ url_linktext }}</a>{% if can_edit %} | <a href="/edit">Aggiungi</a>{% endif %}
+</div>
+</body>
+</html>

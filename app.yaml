@@ -1,0 +1,30 @@
+application: listanascita
+version: 1
+runtime: python
+api_version: 1
+
+
+handlers:
+- url: /stylesheets
+  static_dir: stylesheets
+
+- url: /js
+  static_dir: js
+
+- url: /.*
+  script: listanascita.py
+
+- url: /edit
+  script: listanascita.py
+  login: admin
+
+- url: /_ah/mail/.+
+  script: forwardemail.py
+  login: admin
+
+inbound_services:
+- mail
+
+builtins:
+- remote_api: on
+

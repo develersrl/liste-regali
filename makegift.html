@@ -1,0 +1,63 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="it-IT">
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Lista Nascita Valerio</title>
+<script src="js/simpleCart.js" type="text/javascript"></script>
+<script src="js/gen_validatorv4.js" type="text/javascript"></script>
+<link rel="stylesheet" href="stylesheets/stile.css" type="text/css" media="screen" />
+</head>
+<body>
+  <div id="contenitore">
+    <div id="riepilogo">
+      <h3>Lasciaci i tuoi dati e clicca su "Conferma"</h3>
+        <form action="/confirm" method="post" id="confirm_form">
+          <input type="hidden" name="cart" value="{{ cart_js }}" />
+          <input type="hidden" name="code" value="{{ code }}" />
+          <input type="hidden" name="total" value="{{ total }}" />
+          <label>Email: </label><input type="text" name="email" /> (controlla bene, riceverai il riepilogo a questo indirizzo)<br /><br />
+          Se vuoi, puoi lasciarci un messaggio. Indica per favore nel messaggio se l'oggetto che hai scelto è in prestito o in regalo. Grazie!<br />
+          <br />
+          <label>Nome e Cognome: </label><input type="text" name="sender" /><br />
+          <textarea name="message" rows="10" cols="80"></textarea><br />
+          <input type="radio" name="consegna" value="amano" checked="checked" /><label>Vi porterò di persona il regalo/prestito</label><br />
+          <input type="radio" name="consegna" value="online" /><label>Comprerò on line e farò recapitare il regalo a casa vostra</label><br /><br />
+          <div id="info-bonifico">
+            <p>Hai prenotato:</p>
+            <ul>
+            {% for item in cart %}
+                <li>"{{item.name}}"
+                    <blockquote>{{item.info|safe}}</blockquote>
+                </li>
+            {% endfor %}
+            </ul>
+            <!--
+            <p>
+            Se hai scelto di farci un bonifico, ecco i dati:<br />
+            Conto intestato a <strong>Matteo Bertini</strong><br />
+            IBAN: <strong>IT54J0326802800052203259260</strong><br />
+            Con causale: <strong>Lista Nascita {{ code }}</strong><br />
+            <br />
+            La prenotazione sarà valida per 5 giorni e verrà confermata alla ricezione del bonifico.
+            </p>
+            --!>
+          </div>
+          <input type="submit" value="Conferma" class="simpleCart_empty">
+          <div class="clear"></div>
+        </form>
+    </div>
+  </div>
+</body>
+
+<script  type="text/javascript">
+  var frmvalidator = new Validator("confirm_form");
+  frmvalidator.addValidation("sender", "req", "Inserire il nome del mittente");
+
+  frmvalidator.addValidation("email", "req", "Lascia la tua email");
+  frmvalidator.addValidation("email", "email", "Inserisci una email valida");
+</script>
+
+</html>

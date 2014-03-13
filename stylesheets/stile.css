@@ -1,0 +1,332 @@
+.itemContainer{
+    background-color: #bbbbff;
+    border: 2px solid #280e00;
+    font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+    margin-bottom: 10px;
+    margin-left: 10px;
+    margin-right: auto;
+    margin-top: 10px;
+    width: 170px;
+    float:left;
+    padding: 10px 10px 10px 10px;
+    text-align:center;
+}
+
+.itemContainer a{
+    font-weight:bold;
+}
+
+.itemQuantity{
+    float:left;
+    clear:both;
+    margin-top:5px;
+    display:inline;
+    margin-left:30px;
+}
+.itemQuantity input{
+    background:none;
+    border:none;
+    width:21px;
+    height:17px;
+    background:url(imgs/demoSprite.png);
+    text-align:center;
+    color:#fff;
+    font:bold 11px Arial, sans-serif;
+    padding:0 9px;
+    margin:0 5px 0 0;
+    vertical-align:top;
+    padding-top:3px;
+}
+.itemQuantity input:focus{
+    outline:none;
+}
+.itemincrement a{
+    display:block;
+    background:url(imgs/demoSprite.png) -278px -29px;
+    width:7px;
+    height:5px;
+    text-indent:-9999px;
+    overflow:hidden;
+    margin:3px 0px 0 0;
+}
+.itemdecrement a{
+    display:block;
+    background:url(imgs/demoSprite.png) -278px -35px;
+    width:7px;
+    height:5px;
+    text-indent:-9999px;
+    overflow:hidden;
+    margin:15px 20px 0 0;
+}
+
+.itemremove {
+    margin-right:10px;
+    float:right;
+}
+
+.itemName {
+    text-transform:uppercase;
+    font-size:small;
+    font-weight:bold;
+}
+
+.itemTotal{
+    font-weight:bold;
+}
+
+.simpleCart_total{
+    font-weight:bold;
+}
+
+.simpleCart_checkout {
+    display: -moz-inline-stack;
+    display: inline-block;
+    width: 93px;
+    height: 27px;
+    background: url("imgs/button.png") no-repeat;
+    
+    line-height: 27px;
+    
+    vertical-align: text-middle;
+    text-align: center;
+    color: #ffffff;
+    font-family: sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+    font-style: normal;
+    text-decoration: none;
+    margin-top: 20px;
+}
+
+.simpleCart_empty{
+    font-size:0.8em;
+    float: right;
+    margin-top: 10px;
+}
+
+.centrato {
+    text-align:center;
+    margin:30px auto 30px auto;
+    width:300px;
+}
+
+.dx {
+    float:right;
+}
+
+body {
+    background-image: url(imgs/sfondo.jpg);
+    background-repeat:repeat-y;
+    background-color: #d6b7bc;
+    font-size: 0.8em;
+    margin: 0px; 
+    padding: 0px;
+    font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+}
+
+ol, ul {
+    list-style: none;
+}
+
+a { 
+    color:#00281c;
+}
+
+h1 {
+    color: #4c4c5f;
+}
+
+h1.login { 
+    font-size: large;
+    color: #08223e;
+}
+/* --------- ID ---------- */
+
+
+#login {
+    background-color: #CCCCFF;
+    border: 2px solid #4c4c5f;
+    color: #4c4c5f;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+    width: 70%;
+    padding: 20px;
+    font-size: medium;
+}
+
+#contenitore {
+    background-image: url(imgs/pippo.jpg);
+    background-repeat: no-repeat;
+    font-size: 0.9em;
+    margin-bottom: 0px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 0px;
+    width: 90%;
+    min-height:768px;
+
+}
+
+#contenuto {
+    width: 80%;
+}
+
+#avviso {
+    background-color: #CCCCFF;
+    border: 2px solid #4c4c5f;
+    color: #4c4c5f;
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+    padding: 5px;
+    font-size: 1.2em;
+}
+
+#carrello {
+    clear:both;
+    margin: auto;
+    background-color: #CCCCFF;
+    border: 2px solid #4c4c5f;
+    color: #4c4c5f;
+    width: 220px;
+    font-size: 1.2em;
+    padding:5px;
+    position:fixed;
+    right:5px;
+    top:5px;
+    no-repeat top left;
+    height: 90%;
+    overflow:auto;
+}
+#sommario {
+    margin-left: 10px;
+    background-color: #9e7c47;
+}
+#riepilogo {
+    background-color: #CCCCFF;
+    border: 2px solid #4c4c5f;
+    color: #4c4c5f;
+    font-size: 1.2em;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    width: 90%;
+    padding: 20px;
+}
+
+
+#info-bonifico {
+    background-color:#d6b7bc;
+    padding:5px 20px 5px 20px;
+    border: 1px solid #280e00;
+}
+/* --------- CLASSI ---------- */
+
+
+.box {
+    background-color:rgba(255,229,203,0.9);
+    border: 2px solid #4c4c5f;
+    text-align:center;
+    margin-bottom: 30px;
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-top: 30px;
+    width: 200px;
+    height: 500px;
+    float:left;
+    position:relative;
+	filter: alpha(opacity=90);
+}
+
+.interno {
+    padding: 0 10px 15px 10px;
+}
+
+.categoria {
+    font-size:small;
+    font-weight:bold;
+    text-align:left;
+    background-color: #FFCB97;
+    color:#4c5f4c;
+    margin: 0 0 0 0;
+    padding-left: 10px;
+}
+
+.titolo {
+    text-transform:uppercase;
+    font-size:medium;
+    font-weight:bold;
+}
+.descrizione {
+    font-size:small;
+    text-align:left;
+}
+
+/*
+.totale {
+    font-style:italic;
+}
+.n_quote {
+    font-size:10px;
+    margin-top: -10px;
+}
+*/
+
+.costo {
+    font-size:1.3em;
+}
+
+
+.regala {
+    display: -moz-inline-stack;
+    display: inline-block;
+    
+    width: 77px;
+    height: 27px;
+    
+    background: url("imgs/button1.png") no-repeat;
+    /*
+     * line-height: 27px;
+     * vertical-align: text-middle;
+     * text-align: center;
+     * color: #ffffff;
+     * font-family: sans-serif;
+     * font-size: 13px;
+     * font-weight: bold;
+     * font-style: normal;
+     */
+}
+.regala > span {
+    display: -moz-inline-block;
+}
+
+.tot_finale {
+    font-size:medium;
+    margin-top:20px;
+    margin-bottom:20px;
+    text-align:center;
+}
+
+.sx {
+    float:left;
+}
+
+.centra {
+    margin:auto;
+	text-align: center;
+
+}
+
+.clear {
+    clear:both;
+}
+.ribbon {
+    position:absolute; 
+    left:0px; 
+    top:0px; 
+}
+
+
+/* --------- FINE CLASSI ---------- */
+
