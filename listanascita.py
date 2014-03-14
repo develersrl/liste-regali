@@ -151,7 +151,7 @@ class EditItem(webapp.RequestHandler):
     def get(self):
         key = self.request.get("key")
         if key:
-            item = db.get(key)
+            item = db.get(db.Key(key))
         else:
             item = {'position': 0}
         template_values = {
