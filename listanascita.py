@@ -95,7 +95,7 @@ class MakeGift(webapp.RequestHandler):
             cart = []
             for i in range(num_items):
                 key = self.request.get("item_key_%d" % i)
-                dbitem = Gift.get(key)
+                dbitem = Gift.get_by_key_name(key)
                 item = {
                     'key': key,
                     'name': self.request.get("item_name_%d" % i),
@@ -125,7 +125,7 @@ class MakeGift(webapp.RequestHandler):
             gift.put()
             cart = json.loads(gift.cart)
             for c, elem in enumerate(cart):
-                item = Item.get(elem['key'])
+                item = Item.get_by_key_name(elem['key'])
                 item.avail_parts -= elem['quantity']
                 item.put()
                 cart[c]['info'] = item.info
@@ -151,7 +151,7 @@ class EditItem(webapp.RequestHandler):
     def get(self):
         key = self.request.get("key")
         if key:
-            item = Item.get(key)
+            item = Item.get_by_key_name(key)
         else:
             item = {'position': 0}
         template_values = {
@@ -162,7 +162,7 @@ class EditItem(webapp.RequestHandler):
     def post(self):
         key = self.request.get("key")
         if key:
-            item = Item.get(key)
+            item = Item.get_by_key_name(key)
         else:
             item = Item()
 
@@ -184,7 +184,7 @@ class EditItem(webapp.RequestHandler):
 
 class Image(webapp.RequestHandler):
     def get(self, key):
-        item = Item.get(key)
+        item = Item.get_by_key_name(key)
         if item and item.image:
             self.response.headers['Content-Type'] = "image/jpeg"
             self.response.out.write(item.image)
