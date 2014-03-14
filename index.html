@@ -42,15 +42,15 @@
         <br />
         {% endif %}
         <p class="titolo">{{ item.title }}</p>
-        <img src="img/{{ item.key }}.jpg" width="150" height="110" />
+        <img src="img/{{ item.key() }}.jpg" width="150" height="110" />
         {% if item.is_complete %}<img src="stylesheets/imgs/fioccoregalo.png" class="ribbon" width="150" height="110" />{% endif %}
         <p class="descrizione">{{ item.info|safe }}</p>
         {% if not item.is_complete %}
-        <a class="regala" href="javascript:;" onclick="simpleCart.add('name={{ item.title }}', 'price={{ item.part_price }}','quantity=1','key={{ item.key }}','thumb=img/{{ item.key }}.png');" ></a>
+        <a class="regala" href="javascript:;" onclick="simpleCart.add('name={{ item.title }}', 'price={{ item.part_price }}','quantity=1','key={{ item.key() }}','thumb=img/{{ item.key() }}.png');" ></a>
         {% endif %}
 	{% if can_edit %}<p>
 	  {{ item.avail_parts }} / {{ item.tot_parts }} <br />
-	  <a href="/edit?key={{ item.key }}">Modifica</a> | <a href="/edit">Aggiungi</a>
+	  <a href="/edit?key={{ item.key() }}">Modifica</a> | <a href="/edit">Aggiungi</a>
 	</p>{% endif %}
     </div>
     </li>
