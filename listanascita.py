@@ -188,7 +188,6 @@ class Image(webapp.RequestHandler):
         if item and item.image:
             self.response.headers['Content-Type'] = "image/jpeg"
             self.response.out.write(item.image)
-            item.put()
         else:
             self.error(404)
 
