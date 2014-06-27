@@ -43,21 +43,18 @@
             <br />
             La prenotazione sarà valida per 5 giorni e verrà confermata alla ricezione del bonifico.
             </p>
-            --!>
+            -->
           </div>
           <input type="submit" value="Conferma" class="simpleCart_empty">
           <div class="clear"></div>
         </form>
     </div>
   </div>
+  <script  type="text/javascript">
+    var frmvalidator = new Validator("confirm_form");
+    frmvalidator.addValidation("sender", "req", "Inserire il nome del mittente");
+    frmvalidator.addValidation("email", "req", "Lascia la tua email");
+    frmvalidator.addValidation("email", "email", "Inserisci una email valida");
+  </script>
 </body>
-
-<script  type="text/javascript">
-  var frmvalidator = new Validator("confirm_form");
-  frmvalidator.addValidation("sender", "req", "Inserire il nome del mittente");
-
-  frmvalidator.addValidation("email", "req", "Lascia la tua email");
-  frmvalidator.addValidation("email", "email", "Inserisci una email valida");
-</script>
-
 </html>
