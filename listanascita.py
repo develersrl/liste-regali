@@ -106,8 +106,8 @@ class MakeGift(webapp.RequestHandler):
                 cart.append(item)
 
             template_values = {
-                'cart': cart,
-                'cart_js': json.dumps(cart),
+                'cart': cart, # lista di dizionari
+                'cart_js': urllib.quote(json.dumps(cart)),
                 'total': sum(i['price']*i['quantity'] for i in cart),
                 'code': 'ID'+hex(int(time.time()))[-5:].upper(),
             }
@@ -123,7 +123,7 @@ class MakeGift(webapp.RequestHandler):
             gift.cart = self.request.get("cart")
             gift.total = float(self.request.get("total"))
             gift.put()
-            cart = json.loads(gift.cart)
+            cart = json.loads(urllib.unquote(gift.cart))
             for c, elem in enumerate(cart):
                 item = Item.get(elem['key'])
                 item.avail_parts -= elem['quantity']
