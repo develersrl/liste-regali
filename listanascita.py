@@ -95,7 +95,7 @@ class MakeGift(webapp.RequestHandler):
             cart = []
             for i in range(num_items):
                 key = self.request.get("item_key_%d" % i)
-                dbitem = Gift.get(key)
+                dbitem = Item.get(key)
                 item = {
                     'key': key,
                     'name': self.request.get("item_name_%d" % i),

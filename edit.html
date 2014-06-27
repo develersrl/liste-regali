@@ -5,7 +5,7 @@
   <body>
   <div id="contenitore"><div id="riepilogo">
   <form action="/edit" enctype="multipart/form-data" method="post">
-    <input type="hidden" name="key" value="{{ item.key() }}"/>
+    <input type="hidden" name="key" value="{{ item.key }}"/>
     <div><label>Title:</label><input type="text" name="title" value="{{ item.title }}" />
     <label>Category:</label><select name="category">
     {% for category in categories %}<option{% if item.category == category %} selected{% endif %} value="{{ category }}">{{ category }}</option>
@@ -13,16 +13,16 @@
     </select>
     <label>Position:</label><input type="text" name="position" value="{{ item.position }}" size=2 /></div>
 
-    <div>{% if item.key() %}<img src='img/{{ item.key() }}.jpg' align="left" />{% endif %}
+    <div>{% if item.key %}<img src='img/{{ item.key }}.jpg' align="left" />{% endif %}
     <textarea name="info" rows="3" cols="60">{{ item.info }}</textarea></div>
 
     <div><label>New Image:</label><input type="file" name="img"/></div>
 
     <div><label>Tot Parts:</label><input type="text" name="tot_parts" value="{{ item.tot_parts }}" size=3 />
-    {% if item.key() %}<label>Avail Parts:</label><input type="text" name="avail_parts" value="{{ item.avail_parts }}" size=3 />{% endif %}</div>
+    {% if item.key %}<label>Avail Parts:</label><input type="text" name="avail_parts" value="{{ item.avail_parts }}" size=3 />{% endif %}</div>
 
     <div><label>Part Price:</label><input type="text" name="part_price" value="{{ item.part_price }}" size=4 />
-    {% if item.key() %}<label>Tot Price:</label><input type="text" name="tot_price" value="{{ item.tot_price }}" readonly size=5 />{% endif %}</div>
+    {% if item.key %}<label>Tot Price:</label><input type="text" name="tot_price" value="{{ item.tot_price }}" readonly size=5 />{% endif %}</div>
 
     <div><input type="submit" value="Save Item"></div>
   </form>
