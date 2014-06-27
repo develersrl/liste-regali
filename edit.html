@@ -5,7 +5,7 @@
   <body>
   <div id="contenitore"><div id="riepilogo">
   <form action="/edit" enctype="multipart/form-data" method="post">
-    <input type="hidden" name="key" value="{{ item.key }}"/>
+    <input type="hidden" name="key" value="{{ item.key() }}"/>
     <div><label>Title:</label><input type="text" name="title" value="{{ item.title }}" />
     <label>Category:</label><select name="category">
     {% for category in categories %}<option{% if item.category == category %} selected{% endif %} value="{{ category }}">{{ category }}</option>
@@ -13,7 +13,7 @@
     </select>
     <label>Position:</label><input type="text" name="position" value="{{ item.position }}" size=2 /></div>
 
-    <div>{% if item.key %}<img src='img/{{ item.key }}.jpg' align="left" />{% endif %}
+    <div>{% if item.key %}<img src='img/{{ item.key() }}.jpg' align="left" />{% endif %}
     <textarea name="info" rows="3" cols="60">{{ item.info }}</textarea></div>
 
     <div><label>New Image:</label><input type="file" name="img"/></div>

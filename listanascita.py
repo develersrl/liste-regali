@@ -153,7 +153,8 @@ class EditItem(webapp.RequestHandler):
         if key:
             item = Item.get(key)
         else:
-            item = {'position': 0}
+            item = {'position': 0,
+                    'key': None}
         template_values = {
             'item': item,
             'categories': CATEGORIES,
