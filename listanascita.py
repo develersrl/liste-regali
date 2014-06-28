@@ -22,6 +22,9 @@ CATEGORIES = ["0-20 euro", "21-50 euro", "51-100 euro", "Oltre 100 euro", "Altro
 
 env = Environment(loader=FileSystemLoader("./"))
 
+img_width = 150
+img_height = 110
+
 class Item(db.Model):
     title = db.StringProperty()
     info = db.StringProperty(multiline=True, indexed=False)
@@ -79,6 +82,8 @@ class MainPage(webapp.RequestHandler):
             item.visible = (item.tot_parts > 0)
 
         template_values = {
+            'img_width': img_width,
+            'img_height': img_height,
             'items': items,
             'url': url,
             'url_linktext': url_linktext,
@@ -156,6 +161,8 @@ class EditItem(webapp.RequestHandler):
             item = {'position': 0,
                     'key': None}
         template_values = {
+            'img_width': img_width,
+            'img_height': img_height,
             'item': item,
             'categories': CATEGORIES,
         }
@@ -169,6 +176,7 @@ class EditItem(webapp.RequestHandler):
 
         img = self.request.get("img")
         if img:
+            img = images.resize(img, img_width, img_height)
             item.image = db.Blob(img)
 
         item.title = self.request.get('title')
@@ -181,7 +189,10 @@ class EditItem(webapp.RequestHandler):
         item.tot_price = item.part_price * item.tot_parts
 
         item.put()
-        self.redirect('/')
+        if self.request.get("save"):
+            self.redirect('/')
+        else:
+            self.redirect('?key=%s' % item.key())
 
 class Image(webapp.RequestHandler):
     def get(self, key):
