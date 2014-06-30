@@ -159,7 +159,7 @@ class EditItem(webapp.RequestHandler):
             item = Item.get(key)
         else:
             item = {'position': 0,
-                    'key': None}
+                    'key': lambda: None}
         template_values = {
             'img_width': img_width,
             'img_height': img_height,
