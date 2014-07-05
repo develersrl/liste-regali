@@ -61,23 +61,23 @@
     <li class="box">
         <p class="categoria">{{ item.category }}</p>
         <div class="interno">
-        {% if item.is_complete %}
-        <br />
-        <br />
-        <br />
-        {% endif %}
-        <p class="titolo">{{ item.title }}</p>
-        <img src="img/{{ item.key() }}.jpg" width="{{ img_width }}" height="{{ img_height }}" />
-        {% if item.is_complete %}<img src="stylesheets/imgs/fioccoregalo.png" class="ribbon" width="{{ img_width }}" height="{{ img_height }}" />{% endif %}
-        <p class="descrizione">{{ item.info|safe }}</p>
-        {% if not item.is_complete %}
-        <a class="regala" href="javascript:;" onclick="simpleCart.add('name={{ item.title }}', 'price={{ item.part_price }}','quantity=1','key={{ item.key() }}','thumb=img/{{ item.key() }}.png');" ></a>
-        {% endif %}
-	{% if can_edit %}<p>
-	  {{ item.avail_parts }} / {{ item.tot_parts }} <br />
-	  <a href="/edit?key={{ item.key() }}">Modifica</a> | <a href="/edit">Aggiungi</a>
-	</p>{% endif %}
-    </div>
+            {% if item.is_complete %}
+            <br />
+            <br />
+            <br />
+            {% endif %}
+            <p class="titolo">{{ item.title }}</p>
+            <img src="img/{{ item.key() }}.jpg" width="{{ img_width }}" height="{{ img_height }}" />
+            {% if item.is_complete %}<img src="stylesheets/imgs/fioccoregalo.png" class="ribbon" width="{{ img_width }}" height="{{ img_height }}" />{% endif %}
+            <p class="descrizione">{{ item.info|safe }}</p>
+            {% if not item.is_complete %}
+            <a class="regala" href="javascript:;" onclick="simpleCart.add('name={{ item.title }}', 'price={{ item.part_price }}','quantity=1','key={{ item.key() }}','thumb=img/{{ item.key() }}.png');" ></a>
+            {% endif %}
+            {% if can_edit %}<p>
+              {{ item.avail_parts }} / {{ item.tot_parts }} <br />
+              <a href="/edit?key={{ item.key() }}">Modifica</a> | <a href="/edit">Aggiungi</a>
+            </p>{% endif %}
+        </div>
     </li>
 </ul>
 {% endif %}
