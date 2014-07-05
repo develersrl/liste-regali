@@ -2,7 +2,7 @@
   <head>
     <link type="text/css" rel="stylesheet" href="/stylesheets/stile.css" />
   </head>
-  <body>
+  <body class="custom-background">
   <div id="contenitore"><div id="riepilogo">
   <form action="/edit" enctype="multipart/form-data" method="post">
     {% if item.key %}<input type="hidden" name="key" value="{{ item.key() }}"/>{% endif %}

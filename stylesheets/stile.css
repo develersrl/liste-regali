@@ -114,10 +114,15 @@
     float:right;
 }
 
+body.custom-background {
+    background-attachment: scroll;
+    background-color: #ffffff;
+    background-image: url("imgs/sfondo.png");
+    background-position: center top;
+    background-repeat: repeat;
+}
+
 body {
-    background-image: url(imgs/sfondo.png);
-    background-repeat:repeat-y;
-    background-color: #d6b7bc;
     font-size: 0.8em;
     margin: 0px;
     padding: 0px;
