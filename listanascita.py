@@ -18,7 +18,7 @@ from django.utils import simplejson as json
 
 import html2text
 
-CATEGORIES = ["0-20 euro", "21-50 euro", "51-100 euro", "Oltre 100 euro", "Altro"]
+CATEGORIES = ["0-10 euro", "11-20 euro", "Oltre 30 euro", "Altro"]
 
 env = Environment(loader=FileSystemLoader("./"))
 
@@ -138,9 +138,9 @@ class MakeGift(webapp.RequestHandler):
             self.redirect('/thanks')
 
 def mail_confirm(gift, cart):
-    sender = "Elisa e Matteo <elisamatteo@listanascita.appspotmail.com>"
-    reply_to = "Matteo Bertini <matteo.bertini@gmail.com>"
-    subject = "Lista nascita Matteo Elisa"
+    sender = "Farollo e Falpalà <irene@farolloefalpala.appspotmail.com>"
+    reply_to = "Farollo e Falpalà <info@farolloefalpala.it>"
+    subject = "Lista nascita Irene (Matteo e Elisa)"
     to = "%s <%s>" % (gift.sender, gift.email)
     template_values = {
             'gift': gift,
