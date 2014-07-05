@@ -65,8 +65,14 @@ class MainPage(webapp.RequestHandler):
         if not self._check_login():
             return self.response.out.write(open('login.html').read())
 
+        def pos(x):
+            if x.category in CATEGORIES:
+                return (CATEGORIES.index(x.category), x.position)
+            else:
+                return (len(CATEGORIES), x.position)
+
         items_query = Item.all()
-        items = sorted(items_query.fetch(100), key=lambda x: (CATEGORIES.index(x.category), x.position))
+        items = sorted(items_query.fetch(100), key=pos)
 
         if users.is_current_user_admin():
             url = users.create_logout_url(self.request.uri)
