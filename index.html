@@ -46,6 +46,7 @@
         {% if item.is_complete %}<img src="stylesheets/imgs/fioccoregalo.png" class="ribbon" width="{{ img_width }}" height="{{ img_height }}" />{% endif %}
         <p class="descrizione">{{ item.info|safe }}</p>
         {% if not item.is_complete %}
+        <p class="costo centra"><strong>Prezzo:</strong> {{ item.part_price }} €</p>
         <a class="regala" href="javascript:;" onclick="simpleCart.add('name={{ item.title }}', 'price={{ item.part_price }}','quantity=1','key={{ item.key() }}','thumb=img/{{ item.key() }}.png');" ></a>
         {% endif %}
 	{% if can_edit %}<p>
