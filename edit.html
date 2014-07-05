@@ -18,11 +18,11 @@
 
     <div><label>New Image:</label><input type="file" name="img"/><input type="submit" name="upload" value="Upload"></div>
 
-    <div><label>Tot Parts:</label><input type="text" name="tot_parts" value="{{ item.tot_parts }}" size=3 />
+    <div><!--label>Tot Parts:</label--><input type="hidden" name="tot_parts" value="{{ item.tot_parts }}" size=3 />
     <label>Avail Parts:</label><input type="text" name="avail_parts" value="{{ item.avail_parts }}" size=3 /></div>
 
     <div><label>Part Price:</label><input type="text" name="part_price" value="{{ item.part_price }}" size=4 />
-    <label>Tot Price:</label><input type="text" name="tot_price" value="{{ item.tot_price }}" readonly size=5 /></div>
+    <!-- label>Tot Price:</label--><input type="hidden" name="tot_price" value="{{ item.tot_price }}" readonly size=5 /></div>
 
     <div><input type="submit" name="save" value="Save Item"></div>
   </form>
