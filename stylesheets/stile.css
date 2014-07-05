@@ -180,6 +180,18 @@ h1.login {
     font-size: 1.2em;
 }
 
+#farolloefalpala {
+    background-color: rgba(171,255,250,0.9);
+    border: 2px solid #4c4c5f;
+    color: #4c4c5f;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top:10px;
+    width: 90%;
+    padding: 5px;
+    font-size: 1.2em;
+}
+
 #carrello {
     clear:both;
     margin: auto;
@@ -235,6 +247,7 @@ h1.login {
     position:relative;
 	filter: alpha(opacity=90);
 }
+
 
 .interno {
     padding: 0 10px 15px 10px;
