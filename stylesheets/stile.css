@@ -84,9 +84,9 @@
     width: 93px;
     height: 27px;
     background: url("imgs/button.png") no-repeat;
-    
+
     line-height: 27px;
-    
+
     vertical-align: text-middle;
     text-align: center;
     color: #ffffff;
@@ -119,7 +119,7 @@ body {
     background-repeat:repeat-y;
     background-color: #d6b7bc;
     font-size: 0.8em;
-    margin: 0px; 
+    margin: 0px;
     padding: 0px;
     font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
 }
@@ -281,10 +281,10 @@ h1.login {
 .regala {
     display: -moz-inline-stack;
     display: inline-block;
-    
+
     width: 77px;
     height: 27px;
-    
+
     background: url("imgs/button1.png") no-repeat;
     /*
      * line-height: 27px;
@@ -322,9 +322,9 @@ h1.login {
     clear:both;
 }
 .ribbon {
-    position:absolute; 
-    left:0px; 
-    top:0px; 
+    position:absolute;
+    left:0px;
+    top:0px;
 }
 
 
