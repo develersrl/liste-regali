@@ -20,12 +20,12 @@ from django.utils import simplejson as json
 
 import html2text
 
-CATEGORIES = ["0-10 euro", "11-20 euro", "Oltre 30 euro", "Altro"]
+CATEGORIES = ["Libri 0-2", "Giochi", "Libri per la crescita", "Libri per mamma&babbo"]
 
 env = Environment(loader=FileSystemLoader("./"))
 
 img_width = 150
-img_height = 110
+img_height = 150
 
 class Item(db.Model):
     title = db.StringProperty()
