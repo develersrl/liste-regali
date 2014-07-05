@@ -19,12 +19,12 @@
           <input type="hidden" name="code" value="{{ code }}" />
           <input type="hidden" name="total" value="{{ total }}" />
           <label>Email: </label><input type="text" name="email" /> (controlla bene, riceverai il riepilogo a questo indirizzo)<br /><br />
-          Se vuoi, puoi lasciarci un messaggio. Indica per favore nel messaggio se l'oggetto che hai scelto è in prestito o in regalo. Grazie!<br />
+          Se vuoi, puoi lasciarci un messaggio. Grazie!<br />
           <br />
           <label>Nome e Cognome: </label><input type="text" name="sender" /><br />
           <textarea name="message" rows="10" cols="80"></textarea><br />
-          <input type="radio" name="consegna" value="amano" checked="checked" /><label>Vi porterò di persona il regalo/prestito</label><br />
-          <input type="radio" name="consegna" value="online" /><label>Comprerò on line e farò recapitare il regalo a casa vostra</label><br /><br />
+          <input type="radio" name="consegna" value="amano" checked="checked" /><label>Passerò di persona dal negozio</label><br />
+          <input type="radio" name="consegna" value="online" /><label>Compro subito il regalo da mettere nel baule</label><br /><br />
           <div id="info-bonifico">
             <p>Hai prenotato:</p>
             <ul>
@@ -34,18 +34,16 @@
                 </li>
             {% endfor %}
             </ul>
-            <!--
             <p>
             Se hai scelto di farci un bonifico, ecco i dati:<br />
-            Conto intestato a <strong>Matteo Bertini</strong><br />
-            IBAN: <strong>IT54J0326802800052203259260</strong><br />
-            Con causale: <strong>Lista Nascita {{ code }}</strong><br />
+            Conto intestato a <strong>Farollo e Falpalà</strong><br />
+            IBAN: <strong>IT56G0616002823100000001073</strong><br />
+            Con causale: <strong>Lista Nascita Irene {{ code }}</strong><br />
             <br />
             La prenotazione sarà valida per 5 giorni e verrà confermata alla ricezione del bonifico.
             </p>
-            -->
           </div>
-          <input type="submit" value="Conferma" class="simpleCart_empty">
+          <input type="submit" value="Conferma" class="simpleCart_empty" />
           <div class="clear"></div>
         </form>
     </div>
