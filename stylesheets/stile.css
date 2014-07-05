@@ -161,8 +161,6 @@ h1.login {
 }
 
 #contenitore {
-    background-image: url(imgs/pippo.jpg);
-    background-repeat: no-repeat;
     font-size: 0.9em;
     margin-bottom: 0px;
     margin-left: auto;
@@ -170,7 +168,6 @@ h1.login {
     margin-top: 0px;
     width: 90%;
     min-height:768px;
-
 }
 
 #contenuto {
