@@ -5,21 +5,42 @@
   	<blockquote>{{item.info|safe}}</blockquote></li>
 {% endfor %}
 </ul>
+<p>Totale: <strong>{{ gift.total|round(2) }}</strong> euro <p/>
 
 <p>
-Messaggio:
-<blockquote>
-{{ gift.message }}
-</blockquote>
-Firmato: {{ gift.sender }}
+    Messaggio:
+    <blockquote>
+    {{ gift.message }}
+    </blockquote>
+    Firmato: {{ gift.sender }}
 </p>
+
 {% if gift.online %}
-<br /><h3>Dato che hai scelto di comprare on line il regalo, puoi farlo recapitare a:</h3>
-<b>Elisa e Matteo Bertini</b><br />
-Via Colombina 214<br />
-50013 Campi Bisenzio (Firenze)<br />
+    <p>Dato che hai scelto di comprare on line, ritireremo di persona il regalo nel baule dedicato ad Irene da Farollo e Falpalà</p>
+    <div>
+        <p>
+        Invia un bonifico al conto intestato a <strong>Farollo e Falpalà</strong><br />
+        IBAN: <strong>IT56G0616002823100000001073</strong><br />
+        Con causale: <strong>Lista Nascita Irene {{ gift.code }}</strong><br />
+        <br />
+        La prenotazione sarà valida per 5 giorni e verrà confermata alla ricezione del bonifico.<br />
+        </p>
+    </div>
+{% else %}
+    <p>Dato che hai scelto di comprare di persona il regalo, l'indirizzo del negozio è:</p>
+    <div>
+        <b>Farollo e Falpalà</b>
+        <i>Libri e giocattoli per crescere</i><br/>
+        di Chiara Zeccardo<br/>
+        P.IVA - 02781880642<br/>
+        Via A. del Pollaiolo 166, 50142, Firenze<br/>
+        tel - 055 7398900<br/>
+        <a href="http://www.farolloefalpala.it/dove-siamo">Dove siamo</a> -
+        <a href="http://www.farolloefalpala.it/modulo-di-contatto">Contattaci</a> -
+        <a href="http://www.farolloefalpala.it/wp-content/uploads/2014/05/Chiusura.jpg" target="_blank">Orari di apertura</a>
+    </div>
 {% endif %}
 
 <h3>Grazie!</h3>
 
-<i>Elisa e Matteo</i>
+<i>Irene e Valerio</i>
