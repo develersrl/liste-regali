@@ -6,7 +6,7 @@
 {% endfor %}
 </ul>
 <p>Totale: <strong>{{ gift.total|round(2) }}</strong> euro <p/>
-
+<div>
 <p>
     Messaggio:
     <blockquote>
@@ -14,7 +14,7 @@
     </blockquote>
     Firmato: {{ gift.sender }}
 </p>
-
+</div>
 {% if gift.online %}
     <p>Dato che hai scelto di comprare on line, ritireremo di persona il regalo nel baule dedicato ad Irene da Farollo e Falpalà</p>
     <div>
