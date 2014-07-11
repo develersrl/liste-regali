@@ -181,6 +181,10 @@ class EditItem(webapp.RequestHandler):
         key = self.request.get("key")
         if key:
             item = Item.get(key)
+            if self.request.get("delete"):
+                item.delete()
+                self.redirect('/')
+                return
         else:
             item = Item()
 
