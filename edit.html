@@ -24,7 +24,7 @@
     <div><label>Part Price:</label><input type="text" name="part_price" value="{{ item.part_price }}" size=4 />
     <label>Tot Price:</label><input type="text" name="tot_price" value="{{ item.tot_price }}" readonly size=5 /></div>
 
-    <div><input type="submit" name="save" value="Save Item"></div>
+    <div><input type="submit" name="save" value="Save Item">{% if item.key %} - <input type="submit" name="delete" value="Delete">{% endif %}</div>
   </form>
   </div></div>
   </body>

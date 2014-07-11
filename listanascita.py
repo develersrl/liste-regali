@@ -142,7 +142,7 @@ class MakeGift(webapp.RequestHandler):
 def mail_confirm(gift, cart):
     sender = "Elisa e Matteo <elisamatteo@listanascita.appspotmail.com>"
     reply_to = "Matteo Bertini <matteo.bertini@gmail.com>"
-    subject = "Lista nascita Matteo Elisa"
+    subject = "Lista nascita Irene"
     to = "%s <%s>" % (gift.sender, gift.email)
     template_values = {
             'gift': gift,
@@ -175,6 +175,10 @@ class EditItem(webapp.RequestHandler):
         key = self.request.get("key")
         if key:
             item = Item.get(key)
+            if self.request.get("delete"):
+                item.delete()
+                self.redirect('/')
+                return
         else:
             item = Item()
 
